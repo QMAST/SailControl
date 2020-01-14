@@ -1,0 +1,95 @@
+html {
+	font-family: sans-serif
+}
+
+#compass .needle {
+	background: red;
+}
+
+#gpsspeed .needle {
+	background: red;
+}
+
+#windspeed .needle {
+	background: blue;
+}
+
+#windvane .needle {
+	background: blue;
+}
+
+.row {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+
+.row > div {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.semicircle-indicator, .circle-indicator, .vertical-indicator {
+	display: inline-block;
+	position: relative;
+}
+
+.semicircle-indicator .dial, .circle-indicator .dial {
+	width: 120px;
+	height: 120px;
+	border-radius: 100%;
+	border: 20px solid black;
+	transform: rotate(45deg);
+	display: inline-block;
+}
+
+.needle {
+	position: absolute;
+	transform-origin: bottom;
+	display: inline-block;
+	transition: transform 1s ease;
+}
+
+.semicircle-indicator .needle, .circle-indicator .needle {
+	width: 10px;
+	height: 90px;
+	background: grey;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	border-top-left-radius: 100%;
+	border-top-right-radius: 100%;
+	left: 70px;
+	transform: rotate(0deg);
+}
+
+.semicircle-indicator .needle {
+	top: 10px;
+}
+
+.circle-indicator .needle {
+	top: -10px;
+}
+  
+.semicircle-indicator .dial {
+	border-right: 20px solid white;
+	border-bottom: 20px solid white;
+}
+  
+.vertical-indicator .dial {
+	width: 20px;
+	height: 150px;
+	background-color: black;
+	display: inline-block;
+}
+
+.vertical-indicator .needle {
+	width: 40px;
+	height: 10px;
+	background: grey;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	border-top-left-radius: 100%;
+	border-bottom-left-radius: 100%;
+	left: 10px;
+	bottom: 0px;
+}

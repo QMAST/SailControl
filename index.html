@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf8">
+		<title>QMAST SailControl</title>
+		<link rel="stylesheet" href="stylesheet.css">
+	</head>
+	<body>
+		<h1>QMAST SailControl</h1>
+		<div class="row">
+			<div id="autopilot">
+				<h3>Autopilot: OFF</h3>
+			</div>
+		</div>
+		<div class="row">
+			<div id="rudder">
+				<h2>Rudder</h2>
+				<h4><span class="value">90</span> degrees</h4>
+				<div class="semicircle-indicator">
+					<span class="dial"></span>
+					<span class="needle"></span>
+				</div>
+			</div>
+			<div id="compass">
+				<h2>Compass</h2>
+				<h4><span class="value">0</span> degrees</h4>
+				<div class="circle-indicator">
+					<span class="dial"></span>
+					<span class="needle"></span>
+				</div>
+			</div>
+			<div id="windspeed">
+				<h2>Wind Speed</h2>
+				<h4><span class="value">0</span> km/h</h4>
+				<div class="semicircle-indicator">
+					<span class="dial"></span>
+					<span class="needle"></span>
+				</div>
+			</div>
+			<div id="windvane">
+				<h2>Wind Vane</h2>
+				<h4><span class="value">0</span> degrees</h4>
+				<div class="circle-indicator">
+					<span class="dial"></span>
+					<span class="needle"></span>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div id="winch">
+				<h2>Winch</h2>
+				<h4><span class="value">0</span>% out</h4>
+				<div class="vertical-indicator">
+					<span class="dial"></span>
+					<span class="needle"></span>
+				</div>
+			</div>
+			<div id="temp">
+				<h2>Temperature</h2>
+				<h4><span class="value">0</span> degrees</h4>
+				<div class="vertical-indicator">
+					<span class="dial"></span>
+					<span class="needle"></span>
+				</div>
+			</div>
+			<div id="gpsspeed">
+				<h2>GPS Speed</h2>
+				<h4><span class="value">0</span> km/h</h4>
+				<div class="semicircle-indicator">
+					<span class="dial"></span>
+					<span class="needle"></span>
+				</div>
+			</div>
+			<div id="gps">
+				<h2>GPS Position</h2>
+				<h4>Latitude: <span id="gps-latitude"></span></h4>
+				<h4>Longitude: <span id="gps-longitude"></span></h4>
+			</div>
+		</div>
+	</body>
+</html>
