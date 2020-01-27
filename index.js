@@ -86,36 +86,36 @@ app.on('ready', async ()=> {
 
 	win.loadFile('index.html')
 
-	setInterval(() => {
-		sensorValues['compass'] = Math.random() * 360
-		sensorValues['rudder'] = Math.random() * 180
-		sensorValues['winch'] = Math.random()
-		sensorValues['windspeed'] = Math.random() * 100
-		sensorValues['windvane'] = Math.random() * 360
-		sensorValues['temp'] = Math.random() * 30
-		sensorValues['gpsspeed'] = Math.random() * 50
-		sensorValues['gps'] = {
-			latitude: (Math.random() * 180) - 90,
-			longitude: (Math.random() * 360) - 180
-		}
-		win.webContents.send('sensorValues', sensorValues)
-	}, 1000)
-
 	const ports = await SerialPort.list()
 	const bestPort = ports.find((port) => {
-		return port.manufacturer == 'XBEE'
+		return port.manufacturer == 'Digi International'
 	})
 	if (!bestPort) {
-		console.log('XBEE not connected')
+		console.log('XBEE not connected, showing demo data')
+		setInterval(() => {
+			sensorValues['compass'] = Math.random() * 360
+			sensorValues['rudder'] = Math.random() * 180
+			sensorValues['winch'] = Math.random()
+			sensorValues['windspeed'] = Math.random() * 100
+			sensorValues['windvane'] = Math.random() * 360
+			sensorValues['temp'] = Math.random() * 30
+			sensorValues['gpsspeed'] = Math.random() * 50
+			sensorValues['gps'] = {
+				latitude: (Math.random() * 180) - 90,
+				longitude: (Math.random() * 360) - 180
+			}
+			win.webContents.send('sensorValues', sensorValues)
+		}, 1000)
 		return
 	}
-	const port = new SerialPort(port.path, {
+	const port = new SerialPort(bestPort.path, {
 		baudRate: 9600
 	})
 
 	const lineStream = port.pipe(new Readline())
 
 	lineStream.on('data', (message) => {
+		console.log('Received message: ' + message)
 		const cleanMessage = message.split(';')[0]
 		const command = cleanMessage.substr(0, 2)
 		const data = cleanMessage.substr(2)
